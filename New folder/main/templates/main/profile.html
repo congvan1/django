@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    {% for i in user.student.all %}
+        <p>{{ i.name }}</p>
+        <p>{{ i.age }}</p>
+        <p>{{ i.grade }}</p>
+        <p>{{ i.city }}</p>
+        <p>{{ i.school_name }}</p>
+    {% endfor %}  
+
+    {% comment %} <form method="post", action="/profile/" class="form-group">
+		{% csrf_token %}
+		<div class="input-group mb-3">
+	  		<div class="input-group-prepend">
+            {% for i in user.student.all %}
+                <input type='text' value={{i.name}}></br>
+                <input type='text' value={{i.age}}></br>
+                <input type='text' value={{i.grade}}></br>
+                <input type='text' value={{i.city}}></br>
+                <input type='text' value={{i.school_name}}></br>
+                {% comment %} <p>{{ i.name }}</p>
+                <p>{{ i.age }}</p>
+                <p>{{ i.grade }}</p>
+                <p>{{ i.city }}</p>
+                <p>{{ i.school_name }}</p>
+            {% endfor %} 
+	  		<button name="save", type="submit", class="btn btn-success">Create</button>
+	  		</div>
+	  		{{form.name}}
+		</div>
+	</form>   {% endcomment %}
+{% endblock %}
